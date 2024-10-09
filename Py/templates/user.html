@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<body>
+    <a href="http://localhost:5000/input">&lt;&lt;Input</a>
+    <div style="text-align: center;">
+        <h1>Members</h1>
+        {% for user in users %}
+            <div>{{ user['name'] }}</div>
+        {% endfor %}
+    </div>
+</body>

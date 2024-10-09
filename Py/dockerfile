@@ -6,6 +6,6 @@ ARG NAME=dev
 RUN groupadd -g $ID $NAME && \
     useradd -m -u $ID -g $ID $NAME
 WORKDIR /usr/src/app
-RUN pip install flask mysql-connector-python
+RUN pip install flask Flask-MySQLdb
 USER $NAME
 CMD sleep 3 && python app.py
