@@ -1,0 +1,35 @@
+services:
+  python:
+    build:
+      context: ./Py
+      dockerfile: Dockerfile
+    container_name: python
+    # depends_on:
+    #   - mysql
+    ports:
+      - 5000:5000
+    volumes:
+      - ./Py:/usr/src/app
+    init: true
+
+#   mysql:
+#     image: mysql
+#     container_name: mysql
+#     environment:
+      
+#     volumes:
+#       - sql-data:/var/lib/mysql
+#     ports:
+#       - 3306:3306
+
+#   phpmyadmin:
+#     image: phpmyadmin/phpmyadmin
+#     container_name: phpmyadmin
+#     depends_on:
+#       - mysql
+#     environment:
+
+#     ports:
+#       - 8080:80
+# volumes:
+#   sql-date:

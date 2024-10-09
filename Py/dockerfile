@@ -1,0 +1,11 @@
+FROM python:3.12
+
+ARG ID=1000
+ARG NAME=dev
+
+RUN groupadd -g $ID $NAME && \
+    useradd -m -u $ID -g $ID $NAME
+WORKDIR /usr/src/app
+RUN pip install flask mysql-connector-python
+USER $NAME
+CMD sleep 3 && python app.py
