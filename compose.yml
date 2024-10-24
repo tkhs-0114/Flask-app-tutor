@@ -1,19 +1,21 @@
 services:
   python:
     build:
-      context: ./Py
-      dockerfile: Dockerfile
-    container_name: python
+      context: ./
+      dockerfile: dockerfile
+    container_name: nginx-flask
     depends_on:
       - mysql
     environment:
       MYSQL_HOST: mysql
+    # volumes:
+    #   - ./app:/app
     env_file: ./.env
     ports:
+      - 1000:80
       - 5000:5000
-    volumes:
-      - ./Py:/usr/src/app
     init: true
+    tty: true
 
   mysql:
     image: mysql
