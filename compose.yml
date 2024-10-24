@@ -11,9 +11,16 @@ services:
     env_file: ./.env
     ports:
       - 5000:5000
+      - 8000:8000
     volumes:
-      - ./Py:/usr/src/app
+      - ./Py:/usr/local/src/api
     init: true
+    tty: true
+    entrypoint: >
+      sh -c "
+        cd /usr/local/src/api &&
+        uwsgi --ini uwsgi.ini
+      "
 
   mysql:
     image: mysql
